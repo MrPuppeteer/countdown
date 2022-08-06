@@ -4,6 +4,15 @@ import Card from './Card';
 const Timer = ({ deadline }) => {
 	const timer = useTimer(deadline);
 	const date = new Date(deadline);
+	const options = {
+		weekday: 'long',
+		year: 'numeric',
+		month: 'long',
+		day: 'numeric',
+		hour: 'numeric',
+		minute: 'numeric',
+		second: 'numeric',
+	};
 
 	return (
 		<>
@@ -18,7 +27,10 @@ const Timer = ({ deadline }) => {
 			</div>
 			{timer.Seconds >= 0 && (
 				<p className="text-xl font-normal mb-2">
-					Time until <span className="text-sky-600">{date.toDateString()}</span>
+					Time until{' '}
+					<span className="text-sky-600">
+						{date.toLocaleString('en-UK', options)}
+					</span>
 				</p>
 			)}
 		</>
