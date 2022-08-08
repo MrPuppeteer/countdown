@@ -16,17 +16,19 @@ const Timer = ({ deadline }) => {
 
 	return (
 		<>
+			{timer.Seconds < 0 && (
+				<h2 className="text-xl text-center text-red-600 font-black mb-2">
+					Times up!
+				</h2>
+			)}
 			<div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
-				{timer.Seconds < 0 && (
-					<h2 className="text-xl text-red-600 font-black mb-2">Times up!</h2>
-				)}
 				{timer.Seconds >= 0 &&
 					Object.entries(timer).map(([key, value]) => {
 						return <Card label={key} key={key} value={value} />;
 					})}
 			</div>
 			{timer.Seconds >= 0 && (
-				<p className="text-base sm:text-xl text-center font-normal mb-2">
+				<p className="text-lg sm:text-xl text-center font-normal mb-2">
 					Time until{' '}
 					<span className="text-sky-600">
 						{date.toLocaleString('en-UK', options)}
