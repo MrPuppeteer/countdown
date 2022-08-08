@@ -16,9 +16,9 @@ const Timer = ({ deadline }) => {
 
 	return (
 		<>
-			<div className="flex flex-row justify-center items-center gap-4 mb-4">
+			<div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
 				{timer.Seconds < 0 && (
-					<h1 className="text-xl text-red-600 font-black mb-2">Times up!</h1>
+					<h2 className="text-xl text-red-600 font-black mb-2">Times up!</h2>
 				)}
 				{timer.Seconds >= 0 &&
 					Object.entries(timer).map(([key, value]) => {
